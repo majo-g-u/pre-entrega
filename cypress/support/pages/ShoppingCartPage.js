@@ -2,11 +2,8 @@ export class ShoppingCartPage {
     constructor() {
         this.showTtotalPriceButton = "Show total price",
         this.price = "#price"
+        this.checkoutButton = "Go to Checkout"
     };
-
-   getAddedProductName(product){
-    return cy.xpath(`//p[text() = '${product}']`);
-   };
 
    getAddedProductPrice(product){
     return cy.xpath(`//p[text() = '${product}']//following-sibling::p[@id= "productPrice"]`);
@@ -16,7 +13,7 @@ export class ShoppingCartPage {
     cy.contains(this.showTtotalPriceButton).click();
    };
 
-   getTotal(){
-    return cy.get(this.price).children();
+   goToCheckoutButton(){
+    cy.contains(this.checkoutButton).click();
    }
 }
